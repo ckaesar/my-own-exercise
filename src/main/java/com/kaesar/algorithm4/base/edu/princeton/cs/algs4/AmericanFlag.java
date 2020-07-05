@@ -150,6 +150,7 @@ public class AmericanFlag {
 
     // is v less than w, starting at character d
     private static boolean less(String v, String w, int d) {
+
         // assert v.substring(0, d).equals(w.substring(0, d));
         for (int i = d; i <  Math.min(v.length(), w.length()); i++) {
             if (v.charAt(i) < w.charAt(i)) return true;
