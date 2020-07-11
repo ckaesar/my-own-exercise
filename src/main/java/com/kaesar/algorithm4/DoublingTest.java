@@ -25,4 +25,5 @@ public class DoublingTest {
             StdOut.printf("%7d %5.1f\n", N, time);
         }
     }
+
 }
