@@ -37,6 +37,13 @@ public class Stack<Item> implements Iterable<Item> {
         return item;
     }
 
+    public Item peak() {
+        if(first != null && first.item != null) {
+            return first.item;
+        }
+        throw new RuntimeException("栈为空");
+    }
+
     public Iterator<Item> iterator() {
         return null;
     }

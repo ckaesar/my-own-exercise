@@ -47,6 +47,13 @@ public class FixedCapacityStack<Item> {
     return item;
   }
 
+  public boolean isFull() {
+    if(N == a.length) {
+      return true;
+    }
+    return false;
+  }
+
   public static void main(String[] args) {
     FixedCapacityStack<String> s;
     s = new FixedCapacityStack<String>(100);

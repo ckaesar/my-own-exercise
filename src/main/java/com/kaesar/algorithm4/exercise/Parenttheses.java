@@ -2,6 +2,11 @@ package com.kaesar.algorithm4.exercise;
 
 import com.kaesar.algorithm4.base.edu.princeton.cs.algs4.Stack;
 
+/**
+ * 习题 1.3.4
+ * 编写一个Stack的用例，从标准输入中读取一个文本流并使用栈判定其中的括号是否配对完整。例如，对于 [()]{}{[()()]()}
+ * 程序应该打印true，对于 [(]) 则打印false
+ */
 public class Parenttheses {
 
   public static boolean check(String ops) {

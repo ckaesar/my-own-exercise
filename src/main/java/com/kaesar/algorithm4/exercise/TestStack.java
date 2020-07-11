@@ -16,6 +16,8 @@ public class TestStack {
             }
 
             StdOut.println("(" + s.size() + " left on stack)");
+
+            StdOut.println(s.peak());
         }
     }
 }
