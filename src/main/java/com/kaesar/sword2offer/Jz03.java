@@ -31,7 +31,7 @@ public class Jz03 {
     public static ArrayList<Integer> printListFromTailToHead1(ListNode listNode) {
         ArrayList<Integer> res = new ArrayList<Integer>();
         if (listNode != null) {
-            printListFromTailToHead1(listNode.next);
+            res.addAll(printListFromTailToHead1(listNode.next));
             res.add(listNode.val);
         }
         return res;
@@ -56,7 +56,7 @@ public class Jz03 {
         // 递归
         System.out.println("递归~~~");
         ArrayList<Integer> res1 = printListFromTailToHead1(node);
-        for (int val : res) {
+        for (int val : res1) {
             System.out.println(val);
         }
     }
