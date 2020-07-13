@@ -6,6 +6,9 @@ import java.util.ArrayList;
  * 标题：从尾到头打印链表
  * 题目描述
  * 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
+ *
+ * 题目链接
+ * https://www.nowcoder.com/practice/d0267f7f55b3412ba93bd35cfa8e8035?tpId=13&tags=&title=&diffculty=0&judgeStatus=0&rp=1&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking
  */
 public class Jz03 {
     /**
