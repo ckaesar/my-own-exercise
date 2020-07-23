@@ -1,4 +1,4 @@
-package com.kaesar.algorithm4;
+package com.kaesar.algorithm4.exercise;
 
 /**
  * 计时器

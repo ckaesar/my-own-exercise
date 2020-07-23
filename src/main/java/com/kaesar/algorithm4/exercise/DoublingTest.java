@@ -1,4 +1,4 @@
-package com.kaesar.algorithm4;
+package com.kaesar.algorithm4.exercise;
 
 import com.kaesar.algorithm4.base.edu.princeton.cs.algs4.StdOut;
 import com.kaesar.algorithm4.base.edu.princeton.cs.algs4.StdRandom;
