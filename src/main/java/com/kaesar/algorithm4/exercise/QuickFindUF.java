@@ -3,11 +3,11 @@ package com.kaesar.algorithm4.exercise;
 import com.kaesar.algorithm4.base.edu.princeton.cs.algs4.StdIn;
 import com.kaesar.algorithm4.base.edu.princeton.cs.algs4.StdOut;
 
-public class UF {
+public class QuickFindUF {
   private int[] id; // 分量id（以触点作为索引）
   private int count; // 分量数量
 
-  public UF(int N) {
+  public QuickFindUF(int N) {
     // 初始化分量id数组
     count = N;
     id = new int[N];
@@ -71,21 +71,21 @@ public class UF {
     count--;
   }
 
-  public static void main(String[] args) {
-    // 解决StdIn得到的动态连通性问题
-    int N = StdIn.readInt(); // 读取触点数量
-    UF uf = new UF(N); // 初始化N个分量
-    while (!StdIn.isEmpty()) {
-      int p = StdIn.readInt();
-      int q = StdIn.readInt(); // 读取整数对
-      if (uf.connected(p, q)) {
-        continue; // 如果已经连通则忽略
+    public static void main(String[] args) {
+      // 解决StdIn得到的动态连通性问题
+      int N = StdIn.readInt(); // 读取触点数量
+      QuickFindUF uf = new QuickFindUF(N); // 初始化N个分量
+      while (!StdIn.isEmpty()) {
+        int p = StdIn.readInt();
+        int q = StdIn.readInt(); // 读取整数对
+        if (uf.connected(p, q)) {
+          continue; // 如果已经连通则忽略
+        }
+        uf.union(p, q); // 归并分量
+        StdOut.println(p + " " + q); // 打印连接
       }
-      uf.union(p, q); // 归并分量
-      StdOut.println(p + " " + q); // 打印连接
+      StdOut.println(uf.count() + "components");
     }
-    StdOut.println(uf.count() + "components");
-  }
 
 
 }
