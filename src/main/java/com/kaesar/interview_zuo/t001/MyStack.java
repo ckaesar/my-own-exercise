@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 /**
+ * 设计一个用 getMin 功能的栈
  * 自己的
  */
 public class MyStack {

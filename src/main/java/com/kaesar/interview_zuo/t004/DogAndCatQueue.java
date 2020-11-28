@@ -1,6 +1,7 @@
 package com.kaesar.interview_zuo.t004;
 
 /**
+ * 猫狗队列
  * 自己的
  */
 public class DogAndCatQueue {

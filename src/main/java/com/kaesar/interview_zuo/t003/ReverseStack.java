@@ -3,6 +3,7 @@ package com.kaesar.interview_zuo.t003;
 import java.util.Stack;
 
 /**
+ * 如何仅用递归函数和栈操作逆序一个栈
  * 自己的
  */
 public class ReverseStack {

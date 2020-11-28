@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 /**
+ * 由两个栈组成的队列
  * 自己的
  */
 public class MyQueue {
