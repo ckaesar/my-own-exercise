@@ -1,5 +1,7 @@
 package com.kaesar.sword2offer;
 
+import java.util.Stack;
+
 /**
  * 标题：栈的压入、弹出序列
  * 题目描述
@@ -10,4 +12,28 @@ package com.kaesar.sword2offer;
  * https://www.nowcoder.com/practice/d77d11405cc7470d82554cb392585106?tpId=13&&tqId=11174&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
  */
 public class Jz21 {
+
+  public boolean isPopOrder(int[] pushA, int[] popA) {
+    int n = pushA.length;
+    Stack<Integer> stack = new Stack<Integer>();
+    for (int pushIndex = 0, popIndex = 0; pushIndex < n; pushIndex++) {
+      stack.push(pushA[pushIndex]);
+      while (popIndex < n && !stack.isEmpty() && stack.peek() == popA[popIndex]) {
+        stack.pop();
+        popIndex++;
+      }
+    }
+    return stack.isEmpty();
+  }
+
+  public static void main(String[] args) {
+    int[] pushA = new int[] {1, 2, 3, 4, 5};
+    int[] popA = new int[] {4, 5, 3, 2, 1};
+    int[] popB = new int[] {1, 2, 3, 4, 5};
+    Jz21 jz21 = new Jz21();
+    System.out.println(jz21.isPopOrder(pushA, popA));
+    System.out.println(jz21.isPopOrder(pushA, popB));
+  }
 }
+
+
