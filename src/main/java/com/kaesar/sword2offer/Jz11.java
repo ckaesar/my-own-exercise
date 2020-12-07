@@ -9,6 +9,10 @@ package com.kaesar.sword2offer;
  */
 public class Jz11 {
 
+  public int numberOf111(int n) {
+    return 0;
+  }
+
   public static void main(String[] args) {
     Jz11 jz11 = new Jz11();
     System.out.println(jz11.numberOf1(10));
@@ -36,6 +40,7 @@ public class Jz11 {
 
   /**
    * 库方法
+   *
    * @param n
    * @return
    */

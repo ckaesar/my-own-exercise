@@ -16,6 +16,23 @@ import java.util.Map;
  */
 public class Jz04 {
 
+  public TreeNode reConstructBinaryTree11(int[] pre, int[] in) {
+    if (pre.length == 0 || in.length == 0) {
+      return null;
+    }
+    int rootVal = pre[0];
+    TreeNode root = new TreeNode(rootVal);
+    for (int i = 0; i < in.length; i++) {
+      if (in[i] == rootVal) {
+        root.left = reConstructBinaryTree11(Arrays.copyOfRange(pre, 1, i + 1), Arrays.copyOfRange(in, 0, i));
+        root.right = reConstructBinaryTree11(Arrays.copyOfRange(pre, i + 1, pre.length), Arrays.copyOfRange(in,
+          i + 1, in.length));
+        break;
+      }
+    }
+    return root;
+  }
+
   // 缓存中序遍历数组每个值对应的索引
   private Map<Integer, Integer> indexForInOrders = new HashMap<Integer, Integer>();
 
@@ -38,7 +55,7 @@ public class Jz04 {
     return root;
   }
 
-  public TreeNode reConstructBinaryTree2(int [] pre,int [] in) {
+  public TreeNode reConstructBinaryTree2(int[] pre, int[] in) {
     if (pre.length == 0 || in.length == 0) {
       return null;
     }
@@ -49,7 +66,8 @@ public class Jz04 {
         // 左子树，注意 copyOfRange 函数，左闭右开
         root.left = reConstructBinaryTree2(Arrays.copyOfRange(pre, 1, i + 1), Arrays.copyOfRange(in, 0, i));
         // 右子树，注意 copyOfRange 函数，左闭右开
-        root.right = reConstructBinaryTree2(Arrays.copyOfRange(pre, i + 1, pre.length), Arrays.copyOfRange(in, i + 1, in.length));
+        root.right = reConstructBinaryTree2(Arrays.copyOfRange(pre, i + 1, pre.length), Arrays.copyOfRange(in,
+          i + 1, in.length));
         break;
       }
     }

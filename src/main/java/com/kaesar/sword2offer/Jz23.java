@@ -9,6 +9,46 @@ package com.kaesar.sword2offer;
  */
 public class Jz23 {
 
+  public boolean verifySquenceOfBST11(int[] sequence) {
+    if(sequence == null || sequence.length < 2) {
+      return false;
+    }
+    return verifySquenceOfBST11(sequence, 0, sequence.length - 1);
+
+
+  }
+
+  public boolean verifySquenceOfBST11(int[] sequence, int startIndex, int endIndex) {
+    if(endIndex - startIndex <= 1) {
+      return true;
+    }
+    int rootVal = sequence[endIndex];
+    int tempIndex= startIndex;
+    for(int i = startIndex; i < endIndex; i++) {
+      if(sequence[i] > rootVal) {
+        tempIndex = i;
+        break;
+      }
+    }
+    for(int i = tempIndex; i < endIndex ; i++) {
+      if(sequence[i] < rootVal) {
+        return false;
+      }
+    }
+    return verifySquenceOfBST11(sequence, startIndex, tempIndex - 1) && verifySquenceOfBST11(sequence, tempIndex, endIndex);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
   public boolean verifySquenceOfBST(int[] sequence) {
     if (sequence == null || sequence.length == 0) {
       return false;

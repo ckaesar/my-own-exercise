@@ -9,6 +9,19 @@ package com.kaesar.sword2offer;
  */
 public class Jz18 {
 
+  public void mirror11(TreeNode root) {
+    if (root == null || (root.left == null && root.right == null)) {
+      return;
+    }
+    TreeNode left = root.left;
+    TreeNode right = root.right;
+    mirror11(left);
+    mirror11(right);
+    root.left = right;
+    root.right = left;
+  }
+
+
   public void mirror(TreeNode root) {
     if (root == null || (root.left == null && root.right == null)) {
       return;

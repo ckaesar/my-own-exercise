@@ -1,7 +1,5 @@
 package com.kaesar.sword2offer;
 
-import java.util.Arrays;
-
 /**
  * 标题：变态跳台阶
  * 题目描述

@@ -13,6 +13,22 @@ import java.util.Queue;
  */
 public class Jz22 {
 
+  public ArrayList<Integer> printFromTopToBottom11(TreeNode root) {
+    Queue<TreeNode> nodes = new LinkedList<>();
+    ArrayList<Integer> result = new ArrayList<>();
+    nodes.add(root);
+    while (nodes.size() > 0) {
+      TreeNode node = nodes.poll();
+      if (node != null) {
+        result.add(node.val);
+        nodes.add(node.left);
+        nodes.add(node.right);
+      }
+    }
+    return result;
+  }
+
+
   /**
    * 使用队列来进行层次遍历。
    * <p>

@@ -9,6 +9,18 @@ package com.kaesar.sword2offer;
  */
 public class Jz17 {
 
+  public boolean hasSubtree11(TreeNode root1, TreeNode root2) {
+    if (root1 == null || root2 == null) {
+      return false;
+    }
+    if (root1.val == root2.val) {
+      return hasSubtree11(root1.left, root2.left) && hasSubtree11(root1.right, root2.right);
+    } else {
+      return hasSubtree11(root1.left, root2) || hasSubtree11(root1.right, root2);
+    }
+  }
+
+
   public boolean hasSubtree(TreeNode root1, TreeNode root2) {
     if (root1 == null || root2 == null) {
       return false;

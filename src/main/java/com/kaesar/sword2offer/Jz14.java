@@ -8,6 +8,26 @@ package com.kaesar.sword2offer;
  */
 public class Jz14 {
 
+  public ListNode FindKthToTail11(ListNode head, int k) {
+    if (head == null || k < 1) {
+      return null;
+    }
+    ListNode tail = head;
+    while (tail != null && k > 0) {
+      tail = tail.next;
+      k--;
+    }
+    if (k > 0) {
+      return null;
+    }
+    ListNode result = head;
+    while (tail != null) {
+      result = result.next;
+      tail = tail.next;
+    }
+    return result;
+  }
+
 
   public ListNode FindKthToTail(ListNode head, int k) {
     if (head == null || k < 1) {
@@ -31,10 +51,6 @@ public class Jz14 {
 
   /**
    * 方法二：双指针移动
-   * 作者：CyC2018
-   * 链接：https://www.nowcoder.com/discuss/198840?type=1
-   * 来源：牛客网
-   * <p>
    * 设链表的长度为 N。设置两个指针 P1 和 P2，先让 P1 移动 K 个节点，则还有 N - K 个节点可以移动。此时让 P1 和 P2 同时移动，
    * 可以知道当 P1 移动到链表结尾时，P2 移动到第 N - K 个节点处，该位置就是倒数第 K 个节点。
    *

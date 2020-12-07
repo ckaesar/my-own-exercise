@@ -13,6 +13,44 @@ import java.util.Stack;
  */
 public class Jz21 {
 
+  public boolean isPopOrder11(int[] pushA, int[] popA) {
+    Stack<Integer> datas = new Stack<>();
+    for(int i =0, j = 0; i < pushA.length || j < popA.length;) {
+      if(datas.size() > 0 && datas.peek() == popA[j]) {
+        datas.pop();
+        j++;
+      } else if( i < pushA.length) {
+        datas.push(pushA[i]);
+        i++;
+      }
+    }
+    if(datas.size() == 0) {
+      return true;
+    }
+    return false;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   public boolean isPopOrder(int[] pushA, int[] popA) {
     int n = pushA.length;
     Stack<Integer> stack = new Stack<Integer>();
@@ -31,6 +69,7 @@ public class Jz21 {
     int[] popA = new int[] {4, 5, 3, 2, 1};
     int[] popB = new int[] {1, 2, 3, 4, 5};
     Jz21 jz21 = new Jz21();
+    System.out.println(jz21.isPopOrder11(pushA, popA));
     System.out.println(jz21.isPopOrder(pushA, popA));
     System.out.println(jz21.isPopOrder(pushA, popB));
   }
