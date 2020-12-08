@@ -12,7 +12,7 @@ import java.util.Arrays;
  * https://www.nowcoder.com/practice/fe6b651b66ae47d7acce78ffdd9a96c7?tpId=13&&tqId=11180&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
  */
 public class Jz27 {
-  private ArrayList<String> ret = new ArrayList<String>();
+  private ArrayList<String> ret = new ArrayList<>();
 
   public ArrayList<String> permutation(String str) {
     if (str.length() == 0) {

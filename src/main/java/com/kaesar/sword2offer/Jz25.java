@@ -10,6 +10,36 @@ package com.kaesar.sword2offer;
  */
 public class Jz25 {
 
+  public RandomListNode clone11(RandomListNode pHead) {
+    if (pHead == null || pHead.next == null) {
+      RandomListNode result = pHead;
+      return result;
+    }
+    RandomListNode cur = pHead;
+    while (cur != null) {
+      RandomListNode node = new RandomListNode(cur.label);
+      node.next = cur.next;
+      cur.next = node;
+      cur = node.next;
+    }
+    RandomListNode randomCur = pHead;
+    while (randomCur.random != null) {
+      randomCur.next.random = randomCur.random.next;
+      randomCur = randomCur.next;
+    }
+    RandomListNode newHead = pHead.next;
+    RandomListNode newCur = newHead;
+    RandomListNode oldCur = pHead;
+    while (oldCur != null) {
+      oldCur.next = newCur.next;
+      newCur.next = newCur.next.next;
+      oldCur = oldCur.next;
+      newCur = newCur.next;
+    }
+    return newHead;
+  }
+
+
   /**
    * 方法：
    * 第一步，在每个节点的后面插入复制的节点。

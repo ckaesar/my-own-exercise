@@ -2,6 +2,7 @@ package com.kaesar.sword2offer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /**
  * 标题：最小的 K 个数
@@ -11,6 +12,20 @@ import java.util.Arrays;
  * https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=13&&tqId=11182&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
  */
 public class Jz29 {
+
+  public ArrayList<Integer> getLeastNumbers_Solution11(int[] nums, int k) {
+    if (k > nums.length || k <= 0) {
+      return new ArrayList<>();
+    }
+    PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2 - o1);
+    for (int num : nums) {
+      maxHeap.add(num);
+      if (maxHeap.size() > k) {
+        maxHeap.poll();
+      }
+    }
+    return new ArrayList<>(maxHeap);
+  }
 
   public ArrayList<Integer> getLeastNumbers_Solution(int[] input, int k) {
     ArrayList<Integer> result = new ArrayList<Integer>();

@@ -9,6 +9,24 @@ package com.kaesar.sword2offer;
  */
 public class Jz30 {
 
+  public int findGreatestSumOfSubArray11(int[] array) {
+    if (array == null || array.length == 0) {
+      return 0;
+    }
+    int result = array[0], max = array[0];
+    for (int i = 1; i < array.length; i++) {
+      if (max < 0) {
+        max = array[i];
+      } else {
+        max += array[i];
+      }
+      if (result < max) {
+        result = max;
+      }
+    }
+    return result;
+  }
+
   public int findGreatestSumOfSubArray(int[] array) {
     if (array == null || array.length == 0) {
       return 0;

@@ -11,23 +11,10 @@ import java.util.ArrayList;
  */
 public class Jz24 {
 
-  public ArrayList<ArrayList<Integer>> findPath11(TreeNode root, int target) {
-    return null;
-  }
-
-
-
-
-
-
-
-
-
-
   private ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
 
   public ArrayList<ArrayList<Integer>> findPath(TreeNode root, int target) {
-    backtracking(root, target, new ArrayList<Integer>());
+    backtracking(root, target, new ArrayList<>());
     return ret;
   }
 
@@ -38,7 +25,7 @@ public class Jz24 {
     path.add(node.val);
     target -= node.val;
     if (target == 0 && node.left == null && node.right == null) {
-      ret.add(new ArrayList<Integer>(path));
+      ret.add(new ArrayList<>(path));
     } else {
       backtracking(node.left, target, path);
       backtracking(node.right, target, path);
