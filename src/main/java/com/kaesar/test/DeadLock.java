@@ -1,5 +1,10 @@
 package com.kaesar.test;
 
+/**
+ * Jstack 进程id > 快照文件名
+ * 例如： jstack 22242 > ./deadlock.txt
+ * 用于生成java虚拟机当前时刻的线程快照
+ */
 public class DeadLock {
 
   private static Object lock1 = new Object();

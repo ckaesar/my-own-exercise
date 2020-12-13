@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * 用JVisualVM查看dump文件
+ */
 public class OutOfMemoryDump {
 
   /**

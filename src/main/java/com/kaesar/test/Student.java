@@ -14,4 +14,8 @@ public class Student {
   public Student(String name) {
     System.out.println("参数构造器。。。" + name);
   }
+
+  public void test () {
+
+  }
 }
