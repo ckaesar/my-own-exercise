@@ -16,4 +16,9 @@ public class Jz48 {
   public int add(int num1, int num2) {
     return num2 == 0 ? num1 : add(num1 ^ num2, (num1 & num2) << 1);
   }
+
+  public static void main(String[] args) {
+    Jz48 jz48 = new Jz48();
+    System.out.println(jz48.add(2, 6));
+  }
 }

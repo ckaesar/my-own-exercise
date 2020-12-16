@@ -27,4 +27,11 @@ public class Jz32 {
     }
     return result;
   }
+
+  public static void main(String[] args) {
+    Jz32 jz32 = new Jz32();
+    int[] numbers = new int[] {3, 32, 321};
+    String s = jz32.printMinNumber(numbers);
+    System.out.println(s);
+  }
 }

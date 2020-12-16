@@ -12,14 +12,14 @@ import java.util.*;
 public class Jz59 {
 
   public ArrayList<ArrayList<Integer>> print(TreeNode pRoot) {
-    Queue<TreeNode> treeNodes = new LinkedList<TreeNode>();
-    ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+    Queue<TreeNode> treeNodes = new LinkedList<>();
+    ArrayList<ArrayList<Integer>> result = new ArrayList<>();
     treeNodes.add(pRoot);
     boolean flag = true; // 当flag为true时，栈从左向右放；当flag为false时，栈从右向左放
     while (!treeNodes.isEmpty()) {
       int cnt = treeNodes.size();
-      ArrayList<Integer> curList = new ArrayList<Integer>();
-      Stack<TreeNode> curNodes = new Stack<TreeNode>();
+      ArrayList<Integer> curList = new ArrayList<>();
+      Stack<TreeNode> curNodes = new Stack<>();
       while (cnt-- > 0) {
 
         TreeNode t = treeNodes.poll();

@@ -11,6 +11,20 @@ package com.kaesar.sword2offer;
  */
 public class Jz51 {
 
+  public int[] multiply11(int[] A) {
+    int n = A.length;
+    int[] B = new int[n];
+    for (int i = 0; i < n; i++) {
+      B[i] = 1;
+      for (int j = 0; j < n; j++) {
+        if (i != j) {
+          B[i] *= A[j];
+        }
+      }
+    }
+    return B;
+  }
+
   public int[] multiply(int[] A) {
     int n = A.length;
     int[] B = new int[n];
@@ -19,5 +33,21 @@ public class Jz51 {
     for (int i = n - 1, product = 1; i >= 0; product *= A[i], i--)  /* 从右往左累乘 */
       B[i] *= product;
     return B;
+  }
+
+  public static void main(String[] args) {
+    Jz51 jz51 = new Jz51();
+    int[] A = new int[] {1, 2, 3, 4, 5, 6};
+    int[] result = jz51.multiply(A);
+    for (int num : result) {
+      System.out.print(num + " ");
+    }
+
+    System.out.println();
+    System.out.println("---------");
+    int[] result2 = jz51.multiply11(A);
+    for (int num : result2) {
+      System.out.print(num + " ");
+    }
   }
 }

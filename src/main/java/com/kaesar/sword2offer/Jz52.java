@@ -1,7 +1,5 @@
 package com.kaesar.sword2offer;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 /**
  * 标题：正则表达式匹配
  * 题目描述

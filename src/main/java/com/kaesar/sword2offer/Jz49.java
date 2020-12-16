@@ -31,5 +31,15 @@ public class Jz49 {
     }
     return isNegative ? -result : result;
   }
+
+  public static void main(String[] args) {
+    Jz49 jz49 = new Jz49();
+    System.out.println(jz49.strToInt("+32293023a"));
+    System.out.println(jz49.strToInt("+2392032"));
+    System.out.println(jz49.strToInt("2293043a"));
+    System.out.println(jz49.strToInt("-fd3323"));
+    System.out.println(jz49.strToInt("-23232942"));
+    System.out.println(jz49.strToInt("292930203"));
+  }
 }
 

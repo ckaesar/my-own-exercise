@@ -15,6 +15,12 @@ import java.util.Arrays;
  */
 public class Jz45 {
 
+  public static void main(String[] args) {
+    Jz45 jz45 = new Jz45();
+    int[] numbers = new int[] {3, 4, 5, 1, 6};
+    System.out.println(jz45.isContinuous(numbers));
+  }
+
   public boolean isContinuous(int[] numbers) {
     if (numbers.length < 5) {
       return false;

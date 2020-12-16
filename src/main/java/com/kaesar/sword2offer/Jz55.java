@@ -12,16 +12,14 @@ import java.util.List;
  */
 public class Jz55 {
 
-  public ListNode EntryNodeOfLoop(ListNode pHead) {
+  public ListNode entryNodeOfLoop(ListNode pHead) {
     if (pHead == null || pHead.next == null) {
       return null;
     }
     List<ListNode> nodes = new ArrayList<ListNode>();
-    boolean flag = false;
     ListNode node = pHead;
-    while (node != null && !flag) {
+    while (node != null) {
       if (nodes.contains(node)) {
-        flag = true;
         return node;
       } else {
         nodes.add(node);
@@ -29,5 +27,22 @@ public class Jz55 {
       }
     }
     return null;
+  }
+
+  public static void main(String[] args) {
+    ListNode root = new ListNode(1);
+    ListNode node1 = new ListNode(2);
+    ListNode node2 = new ListNode(3);
+    ListNode node3 = new ListNode(4);
+    ListNode node4 = new ListNode(5);
+
+    root.next = node1;
+    node1.next = node2;
+    node2.next = node3;
+    node3.next = node2;
+
+    Jz55 jz55 = new Jz55();
+    ListNode result = jz55.entryNodeOfLoop(root);
+    System.out.println(result);
   }
 }

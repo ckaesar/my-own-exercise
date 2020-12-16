@@ -23,4 +23,12 @@ public class Jz47 {
     boolean b = (n > 0) && ((sum += sum_Solution(n - 1)) > 0);
     return sum;
   }
+
+  public static void main(String[] args) {
+    Jz47 jz47 = new Jz47();
+    System.out.println(jz47.sum_Solution(5));
+    System.out.println(jz47.sum_Solution(6));
+    System.out.println(jz47.sum_Solution(7));
+    System.out.println(jz47.sum_Solution(8));
+  }
 }

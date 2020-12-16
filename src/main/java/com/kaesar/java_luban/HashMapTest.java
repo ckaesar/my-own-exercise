@@ -11,5 +11,6 @@ public class HashMapTest {
     hashMap.get("123");
 
     ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+    concurrentHashMap.put("123", "122");
   }
 }

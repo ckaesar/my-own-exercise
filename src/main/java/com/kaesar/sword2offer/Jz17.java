@@ -9,6 +9,14 @@ package com.kaesar.sword2offer;
  */
 public class Jz17 {
 
+  public static void main(String[] args) {
+    TreeNode root1 = new TreeNode(2);
+    TreeNode root2 = new TreeNode(2);
+
+    Jz17 jz17 = new Jz17();
+    System.out.println(jz17.hasSubtree11(root1, root2));
+  }
+
   public boolean hasSubtree11(TreeNode root1, TreeNode root2) {
     if (root1 == null || root2 == null) {
       return false;
@@ -19,7 +27,6 @@ public class Jz17 {
       return hasSubtree11(root1.left, root2) || hasSubtree11(root1.right, root2);
     }
   }
-
 
   public boolean hasSubtree(TreeNode root1, TreeNode root2) {
     if (root1 == null || root2 == null) {

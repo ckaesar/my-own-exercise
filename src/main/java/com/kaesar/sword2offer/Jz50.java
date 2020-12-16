@@ -1,6 +1,7 @@
 package com.kaesar.sword2offer;
 
-import com.sun.org.apache.bcel.internal.generic.SWAP;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 标题：数组中重复的数字
@@ -15,6 +16,22 @@ import com.sun.org.apache.bcel.internal.generic.SWAP;
  * https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&&tqId=11203&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
  */
 public class Jz50 {
+
+  public static boolean duplicate11(int[] numbers, int length, int[] duplication) {
+    if (length <= 1) {
+      return false;
+    }
+
+    Set<Integer> numSet = new HashSet<>();
+    for (int i = 0; i < numbers.length; i++) {
+      if (numSet.contains(numbers[i])) {
+        duplication[0] = numbers[i];
+        return true;
+      }
+      numSet.add(numbers[i]);
+    }
+    return false;
+  }
 
   /**
    * 暴力破解
@@ -66,6 +83,7 @@ public class Jz50 {
     int[] numbers = {2, 3, 1, 0, 2, 5, 2};
     int[] duplication = new int[1];
     int[] duplication2 = new int[1];
+    int[] duplication11 = new int[1];
     boolean duplicate = duplicate(numbers, 7, duplication);
     System.out.println(duplicate);
     System.out.println(duplication[0]);
@@ -73,5 +91,9 @@ public class Jz50 {
     boolean duplicate1 = duplicate1(numbers, 7, duplication2);
     System.out.println(duplicate1);
     System.out.println(duplication2[0]);
+
+    boolean duplicate11 = duplicate11(numbers, 7, duplication11);
+    System.out.println(duplicate11);
+    System.out.println(duplication11[0]);
   }
 }

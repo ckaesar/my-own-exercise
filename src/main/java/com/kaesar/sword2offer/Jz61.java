@@ -48,4 +48,8 @@ public class Jz61 {
     t.right = deserialize();
     return t;
   }
+
+  public static void main(String[] args) {
+
+  }
 }

@@ -15,6 +15,22 @@ package com.kaesar.sword2offer;
  */
 public class Jz46 {
 
+  public int lastRemaining_Solution11(int n, int m) {
+    if (n < 1 || m < 1) {
+      return -1;
+    }
+    ListNode root = new ListNode(0);
+    ListNode cur = root;
+    int nodeSize = 1;
+    int copyM = 1;
+    while (n > 0) {
+      if (copyM == m) {
+        copyM = 0;
+      }
+    }
+    return -1;
+  }
+
   /**
    * 约瑟夫环，圆圈长度为 n 的解可以看成长度为 n-1 的解再加上报数的长度 m。因为是圆圈，所以最后需要对 n 取余。
    *
@@ -31,5 +47,9 @@ public class Jz46 {
     }
     return (lastRemaining_Solution(n - 1, m) + m) % n;
   }
-}
 
+  public static void main(String[] args) {
+    Jz46 jz46 = new Jz46();
+    System.out.println(jz46.lastRemaining_Solution(4, 6));
+  }
+}
