@@ -1,6 +1,6 @@
 package com.kaesar.sword2offer;
 
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * 标题：数据流中的中位数
@@ -15,12 +15,12 @@ public class Jz63 {
   /* 大顶堆，存储左半边元素 */
   private PriorityQueue<Integer> left;
   /* 小顶堆，存储右半边元素，并且右半边元素都大于左半边 */
-  private PriorityQueue<Integer> right = new PriorityQueue<Integer>();
+  private PriorityQueue<Integer> right = new PriorityQueue<>();
   /* 当前数据流读入的元素个数 */
   private int N = 0;
 
   public Jz63() {
-    left = new PriorityQueue<Integer>((o1, o2) -> o2 - o1);
+    left = new PriorityQueue<>((o1, o2) -> o2 - o1);
   }
 
   public void insert(Integer num) {
@@ -47,6 +47,19 @@ public class Jz63 {
   }
 
   public static void main(String[] args) {
-
+    List<Integer> list1 = new ArrayList<>();
+    list1.add(2);
+    list1.add(1);
+    list1.add(5);
+    list1.add(11);
+    list1.add(4);
+    for(int n: list1) {
+      System.out.print(n + " ");
+    }
+    System.out.println();
+    Collections.sort(list1);
+    for(int n : list1) {
+      System.out.print(n + " ");
+    }
   }
 }

@@ -1,7 +1,5 @@
 package com.kaesar.sword2offer;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 /**
  * 标题：机器人的运动范围
  * 题目描述
