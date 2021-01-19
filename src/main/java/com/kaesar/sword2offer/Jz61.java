@@ -50,12 +50,7 @@ public class Jz61 {
   }
 
   public static void main(String[] args) {
-    TreeNode root = new TreeNode(1);
-    root.left = new TreeNode(2);
-    root.left.left = new TreeNode(4);
-    root.left.right = new TreeNode(5);
-    root.right = new TreeNode(3);
-    root.right.left = new TreeNode(6);
+    TreeNode root = TreeNode.testCase1();
 
     Jz61 jz61 = new Jz61();
     String serialize = jz61.serialize(root);

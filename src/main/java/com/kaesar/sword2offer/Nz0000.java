@@ -136,12 +136,7 @@ public class Nz0000 {
 
 
   public static void main(String[] args) {
-    TreeNode root = new TreeNode(1);
-    root.left = new TreeNode(2);
-    root.left.left = new TreeNode(4);
-    root.left.right = new TreeNode(5);
-    root.right = new TreeNode(3);
-    root.right.left = new TreeNode(6);
+    TreeNode root = TreeNode.testCase1();
 
     // 前序遍历-递归
     List<Integer> result1 = preOrderRecursion(root);

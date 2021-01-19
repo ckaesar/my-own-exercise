@@ -1,7 +1,7 @@
 package com.kaesar.sword2offer;
 
 /**
- * 备忘录
+ * 剑指offer-备忘录
  */
 public class Jz00 {
 
