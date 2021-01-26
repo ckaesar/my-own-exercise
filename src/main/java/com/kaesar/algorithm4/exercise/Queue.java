@@ -6,7 +6,7 @@ import com.kaesar.algorithm4.base.edu.princeton.cs.algs4.StdOut;
 import java.util.Iterator;
 
 /**
- * 先进先出队列
+ * 先进先出队列 FIFO
  */
 public class Queue<Item> implements Iterable<Item> {
 

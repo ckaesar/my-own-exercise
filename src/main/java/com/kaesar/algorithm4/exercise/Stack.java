@@ -2,6 +2,10 @@ package com.kaesar.algorithm4.exercise;
 
 import java.util.Iterator;
 
+/**
+ * 下压堆栈（链表实现）
+ * @param <Item>
+ */
 public class Stack<Item> implements Iterable<Item> {
 
     private Node first; // 栈顶（最近添加的元素）
