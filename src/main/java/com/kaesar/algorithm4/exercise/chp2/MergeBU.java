@@ -3,21 +3,17 @@ package com.kaesar.algorithm4.exercise.chp2;
 import com.kaesar.algorithm4.base.edu.princeton.cs.algs4.StdRandom;
 
 /**
- * 选择排序
+ * 自底向上的归并排序
  */
-public class Selection extends Example {
+public class MergeBU extends Merge {
     public static void sort(Comparable[] a) {
-        // 将 a[] 按升序排列
-        int N = a.length; // 数组长度
-        for (int i = 0; i < N; i++) {
-            // 将a[i]和a[i+1..N]中最小的元素交换
-            int min = i; // 最小元素的索引
-            for (int j = i + 1; j < N; j++) {
-                if (less(a[j], a[min])) {
-                    min = j;
-                }
+        // 进行lgN次两两归并
+        int N = a.length;
+        aux = new Comparable[N];
+        for (int sz = 1; sz < N; sz = sz + sz) { // sz子数组大小
+            for (int lo = 0; lo < N - sz; lo += sz + sz) { // lo: 子数组索引
+                Merge.merge(a, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
             }
-            exch(a, i, min);
         }
     }
 

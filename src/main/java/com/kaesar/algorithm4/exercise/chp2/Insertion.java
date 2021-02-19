@@ -3,21 +3,17 @@ package com.kaesar.algorithm4.exercise.chp2;
 import com.kaesar.algorithm4.base.edu.princeton.cs.algs4.StdRandom;
 
 /**
- * 选择排序
+ * 插入排序
  */
-public class Selection extends Example {
+public class Insertion extends Example {
     public static void sort(Comparable[] a) {
-        // 将 a[] 按升序排列
-        int N = a.length; // 数组长度
-        for (int i = 0; i < N; i++) {
-            // 将a[i]和a[i+1..N]中最小的元素交换
-            int min = i; // 最小元素的索引
-            for (int j = i + 1; j < N; j++) {
-                if (less(a[j], a[min])) {
-                    min = j;
-                }
+        // 将a[]按升序排列
+        int N = a.length;
+        for (int i = 1; i < N; i++) {
+            // 将a[i]插入到a[i-1]、a[i-2]、a[i-3]...之中
+            for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
+                exch(a, j, j - 1);
             }
-            exch(a, i, min);
         }
     }
 

@@ -3,22 +3,30 @@ package com.kaesar.algorithm4.exercise.chp2;
 import com.kaesar.algorithm4.base.edu.princeton.cs.algs4.StdRandom;
 
 /**
- * 选择排序
+ * 三向切分的快速排序
  */
-public class Selection extends Example {
+public class Quick3way extends Example {
     public static void sort(Comparable[] a) {
-        // 将 a[] 按升序排列
-        int N = a.length; // 数组长度
-        for (int i = 0; i < N; i++) {
-            // 将a[i]和a[i+1..N]中最小的元素交换
-            int min = i; // 最小元素的索引
-            for (int j = i + 1; j < N; j++) {
-                if (less(a[j], a[min])) {
-                    min = j;
-                }
+        StdRandom.shuffle(a); // 消除对输入的依赖
+        sort(a, 0, a.length - 1);
+    }
+
+    private static void sort(Comparable[] a, int lo, int hi) {
+        if (hi <= lo) return;
+        int lt = lo, i = lo + 1, gt = hi;
+        Comparable v = a[lo];
+        while (i <= gt) {
+            int cmp = a[i].compareTo(v);
+            if (cmp < 0) {
+                exch(a, lt++, i++);
+            } else if (cmp > 0) {
+                exch(a, i, gt--);
+            } else {
+                i++;
             }
-            exch(a, i, min);
-        }
+        } // 现在a[lo...lt-1] < v = a[lt...gt] < a[gt+1...hi]成立
+        sort(a, lo, lt - 1);
+        sort(a, gt + 1, hi);
     }
 
     public static void main(String[] args) {
