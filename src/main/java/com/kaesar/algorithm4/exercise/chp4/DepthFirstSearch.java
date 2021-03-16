@@ -1,7 +1,7 @@
 package com.kaesar.algorithm4.exercise.chp4;
 
 /**
- * 深度优先搜索
+ * 深度优先搜索 DFS
  */
 public class DepthFirstSearch {
     private boolean[] marked;
