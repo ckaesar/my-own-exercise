@@ -1,7 +1,7 @@
 package com.kaesar.designpattern.zen.chp26;
 
 public abstract class LiftState {
-    // 定义一个环境橘色，也就是封装状态的变化一起的功能变化
+    // 定义一个环境橘色，也就是封装状态的变化引起的功能变化
     protected Context context;
 
     public Context getContext() {
