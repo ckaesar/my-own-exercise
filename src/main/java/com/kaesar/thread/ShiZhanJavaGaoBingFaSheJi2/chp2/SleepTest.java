@@ -1,27 +1,33 @@
 package com.kaesar.thread.ShiZhanJavaGaoBingFaSheJi2.chp2;
 
 /**
- * 线程中断测试
+ * 测试 sleep() 方法
  *
  * @Author: chengk
- * @Date: 2021/6/4 8:48 下午
+ * @Date: 2021/6/7 1:21 下午
  */
-public class InterruptTest1 {
+public class SleepTest {
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread() {
             @Override
             public void run() {
                 while (true) {
-                    // 需要添加判断线程是否被中断，如果是，就会退出循环
                     if (Thread.currentThread().isInterrupted()) {
                         System.out.println("Interrupted.");
                         break;
                     }
-                    System.out.println("running");
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        System.out.println("Interrupted When Sleep.");
+                        // 设置中断状态
+                        Thread.currentThread().interrupt();
+                    }
                     Thread.yield();
                 }
             }
         };
+
         t1.start();
         Thread.sleep(2000);
         t1.interrupt();
