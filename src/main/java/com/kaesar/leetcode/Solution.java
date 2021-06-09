@@ -1,27 +1,25 @@
-//package com.kaesar.leetcode;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public class Solution {
-//    public static int reverse(int x) {
-//        String symbol = "";
-//        if(x < 0) {
-//            symbol = "-";
-//        }
-//        int absolute_x = Math.abs(x);
-//        List<Integer> list = new ArrayList<>();
-//        while (x > 0) {
-//            list.add(0, x % 10);
-//            x = x / 10;
-//        }
-//        for(int i = 0; i < list.size(); i++) {
-//
-//        }
-//    }
-//
-//    public static void main(String[] args) {
-//        System.out.println(reverse(120));
-//    }
-//}
-//
+package com.kaesar.leetcode;
+
+public class Solution {
+    public static boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        String xStr = String.valueOf(x);
+        int left = 0, right = xStr.length() - 1;
+        while (left <= right) {
+            if (xStr.charAt(left) == xStr.charAt(right)) {
+                left++;
+                right--;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(1231321));
+    }
+}
+
