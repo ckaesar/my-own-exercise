@@ -1,5 +1,7 @@
 package com.kaesar.algorithm4.exercise.chp5;
 
+import com.kaesar.algorithm4.exercise.chp1.Queue;
+
 /**
  * 基于单词查找树的符号表
  *
@@ -51,5 +53,53 @@ public class TrieST<Value> {
         char c = key.charAt(d); // 找到第d个字符所对应的子单词查找树
         x.next[c] = put(x.next[c], key, val, d + 1);
         return x;
+    }
+
+    public Iterable<String> keys() {
+        return keysWithPrefix("");
+    }
+
+    public Iterable<String> keysWithPrefix(String pre) {
+        Queue<String> q = new Queue<>();
+        collect(get(root, pre, 0), pre, q);
+        return q;
+    }
+
+    private void collect(Node x, String pre, Queue<String> q) {
+        if (x == null) {
+            return;
+        }
+        if (x.val != null) {
+            q.enqueue(pre);
+        }
+        for (char c = 0; c < R; c++) {
+            collect(x.next[c], pre + c, q);
+        }
+    }
+
+    public Iterable<String> keysThatMatch(String pat) {
+        Queue<String> q = new Queue<>();
+        collect(root, "", pat, q);
+        return q;
+    }
+
+    private void collect(Node x, String pre, String pat, Queue<String> q) {
+        int d = pre.length();
+        if (x == null) {
+            return;
+        }
+        if (d == pat.length() && x.val != null) {
+            q.enqueue(pre);
+        }
+        if (d == pat.length()) {
+            return;
+        }
+
+        char next = pat.charAt(d);
+        for (char c = 0; c < R; c++) {
+            if (next == '.' || next == c) {
+                collect(x.next[c], pre + c, pat, q);
+            }
+        }
     }
 }
