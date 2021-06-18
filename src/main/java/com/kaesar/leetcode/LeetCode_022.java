@@ -11,17 +11,26 @@ public class LeetCode_022 {
      * @return
      */
     public static List<String> generateParenthesis(int n) {
-        List<String> allPossibleResults = new ArrayList<>();
-        generateAllPossibleResults(new char[2 * n], 0, allPossibleResults);
-        return allPossibleResults;
+        List<String> result = new ArrayList<>();
+        generateAllPossibleResults(new char[2 * n], 0, result);
+        return result;
     }
 
+    /**
+     * 递归方法：2*n 的字符数组，每一个字符都有2种可能，直到字符数组被填满，校验是否符合
+     *
+     * @param current
+     * @param pos
+     * @param result
+     */
     public static void generateAllPossibleResults(char[] current, int pos, List<String> result) {
         if (pos == current.length) {
+            // 当字符数组被填充满时，校验是否符合
             if (valid(current)) {
                 result.add(new String(current));
             }
         } else {
+            // 递归
             current[pos] = '(';
             generateAllPossibleResults(current, pos + 1, result);
             current[pos] = ')';
@@ -29,6 +38,12 @@ public class LeetCode_022 {
         }
     }
 
+    /**
+     * 判断是否符合条件
+     *
+     * @param current
+     * @return
+     */
     public static boolean valid(char[] current) {
         int balance = 0;
         for (char c : current) {
@@ -83,6 +98,7 @@ public class LeetCode_022 {
             System.out.println(string);
         }
         System.out.println("=====================");
+
         List<String> strings1 = generateParenthesis2(4);
         for (String s : strings1) {
             System.out.println(s);
