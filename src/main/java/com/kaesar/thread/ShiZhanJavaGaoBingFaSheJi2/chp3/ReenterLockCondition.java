@@ -17,8 +17,9 @@ public class ReenterLockCondition implements Runnable {
     public void run() {
         try {
             lock.lock();
+            System.out.println("t1: Threading is starting.");
             condition.await();
-            System.out.println("Threading is going on.");
+            System.out.println("t1: Threading is going on.");
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -31,6 +32,13 @@ public class ReenterLockCondition implements Runnable {
         Thread t1 = new Thread(reenterLockCondition);
         t1.start();
         Thread.sleep(2000);
-        // 通知线程reenterLockCondition
+        // 通知线程t1继续执行
+        lock.lock();
+        condition.signal();
+        System.out.println("Main: after signal.");
+        Thread.sleep(2000);
+        System.out.println("Main: after sleep.");
+        // 释放锁后，接收到signal通知的线程才能继续执行
+        lock.unlock();
     }
 }
