@@ -5,7 +5,15 @@ public class LeetCode_206 {
         if (head == null || head.next == null) {
             return head;
         }
-
+        ListNode first = head, second = head.next;
+        first.next = null;
+        while (first != null && second != null) {
+            ListNode temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+        return first;
     }
 
     public static void main(String[] args) {
@@ -15,10 +23,10 @@ public class LeetCode_206 {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
 
-        reverseList(head);
-        while (head != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
+        ListNode result = reverseList(head);
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
         }
     }
 }
