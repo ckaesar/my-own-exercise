@@ -10,42 +10,51 @@ public class LeetCode_031 {
         }
         // 是否找到更大的排列
         boolean handled = false;
+        // 首先找到需要调换位置的数字
+        int left = -1, right = -1;
         for (int i = nums.length - 1; i > 0; i--) {
             for (int j = i - 1; j >= 0; j--) {
                 if (nums[i] > nums[j]) {
-                    // 找到更大的排列
-                    // 1.首先将 i 的数字和 j 的数字调换位置
-                    exch(nums, j, i);
-                    // 2.首先将 i+1 后面的数字倒排
-                    for (int x = i + 1; x < (nums.length + i + 1) / 2; x++) {
-                        exch(nums, x, nums.length - 1 - (x - i) / 2);
-                    }
-                    // 3.然后将 j+1到i-1 之间的数字跟 i+1到nums.length-1 的数字整体调换顺序
-                    for (int x = i - 1; x >= j + 1; x--) {
-                        for (int y = x; y < nums.length - 1; y++) {
-                            exch(nums, y, y + 1);
+                    if (j > left) {
+                        left = j;
+                        right = i;
+                    } else if (j == left) {
+                        if (i == right) {
+                            left = j;
+                            right = i;
                         }
                     }
-                    // 4.然后将 j+1 位置的数字移到小于它的数字之后
-                    for (int x = j + 1; x < nums.length - 1; x++) {
-                        if (nums[x] > nums[x + 1]) {
-                            exch(nums, x, x + 1);
-                        } else {
-                            break;
-                        }
-                    }
-                    // 找到最大的排列， 循环结束
                     handled = true;
                     break;
                 }
             }
-            if (handled) {
-                break;
-            }
         }
-        // 如果handled为false，说明没有更大的排列，也就是不存在下一个更大排列，将数字重新排列成最小的排列，
-        // 就是将顺序倒排
-        if (!handled) {
+
+        if (handled) {
+            // 找到更大的排列
+            // 1.首先将 right 的数字和 left 的数字调换位置
+            exch(nums, left, right);
+            // 2.首先将 right+1 后面的数字倒排
+            for (int x = right + 1; x < (nums.length + right + 1) / 2; x++) {
+                exch(nums, x, nums.length - 1 - (x - right) / 2);
+            }
+            // 3.然后将 left+1到right-1 之间的数字跟 right+1到nums.length-1 的数字整体调换顺序
+            for (int x = right - 1; x >= left + 1; x--) {
+                for (int y = x; y < nums.length - 1; y++) {
+                    exch(nums, y, y + 1);
+                }
+            }
+            // 4.然后将 left+1 位置的数字移到小于它的数字之后
+            for (int x = left + 1; x < nums.length - 1; x++) {
+                if (nums[x] > nums[x + 1]) {
+                    exch(nums, x, x + 1);
+                } else {
+                    break;
+                }
+            }
+        } else {
+            // 如果handled为false，说明没有更大的排列，也就是不存在下一个更大排列，将数字重新排列成最小的排列，
+            // 就是将顺序倒排
             for (int i = 0; i < nums.length / 2; i++) {
                 exch(nums, i, nums.length - 1 - i);
             }
